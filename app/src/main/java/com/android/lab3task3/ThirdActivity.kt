@@ -16,24 +16,24 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var drawerLayout: DrawerLayout
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     lateinit var toSecond: Button
-    lateinit var toFourth: Button
+    lateinit var toFirst: Button
     lateinit var toAbout: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
 
-        drawerLayout = findViewById(R.id.drawer3)
+        drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        toSecond = findViewById(R.id.button3to2)
+        toFirst = findViewById(R.id.bnToFirst)
+        toFirst.setOnClickListener(this)
+        toSecond = findViewById(R.id.bnToSecond)
         toSecond.setOnClickListener(this)
-        toFourth = findViewById(R.id.button3to4)
-        toFourth.setOnClickListener(this)
-        toAbout = findViewById(R.id.about_button3)
+        toAbout = findViewById(R.id.about)
         toAbout.setOnClickListener(this)
     }
 
@@ -45,14 +45,14 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         if (p0 != null)
             when (p0.id) {
-                toSecond.id -> {
-                    val intent = Intent(this, SecondActivity::class.java)
+                toFirst.id -> {
+                    val intent = Intent(this, MainActivity::class.java)
                     intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                 }
-                toFourth.id -> {
-                    val intent = Intent(this, FourthActivity::class.java)
-                    intent.addFlags(FLAG_ACTIVITY_NO_ANIMATION)
+                toSecond.id -> {
+                    val intent = Intent(this, SecondActivity::class.java)
+                    intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                 }
                 toAbout.id -> {

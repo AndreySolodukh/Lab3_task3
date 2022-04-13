@@ -22,17 +22,17 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        drawerLayout = findViewById(R.id.drawer2)
+        drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        toFirst = findViewById(R.id.button2to1)
+        toFirst = findViewById(R.id.bnToFirst)
         toFirst.setOnClickListener(this)
-        toThird = findViewById(R.id.button2to3)
+        toThird = findViewById(R.id.bnToThird)
         toThird.setOnClickListener(this)
-        toAbout = findViewById(R.id.about_button2)
+        toAbout = findViewById(R.id.about)
         toAbout.setOnClickListener(this)
     }
 
